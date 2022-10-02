@@ -1,5 +1,6 @@
 from aiogram import Dispatcher
-
+from . import chat_filter
+from . import admin_filter
 from loader import dp
 # from .is_admin import AdminFilter
 
