@@ -2,12 +2,18 @@ from aiogram import types
 from aiogram.dispatcher.filters import Command
 
 from filters.chat_filter import IsGroup
+from keyboards.inline.code import code
 from loader import dp, bot
 
 
 @dp.message_handler(IsGroup(), Command('ping'))
 async def start_chat_cmd(message: types.Message):
     await message.reply('pong!')
+
+
+@dp.message_handler(IsGroup(), Command('code'))
+async def show_code(message: types.Message):
+    await message.answer('Исходный код бота доступен по кнопке ниже :)', reply_markup=code)
 
 
 @dp.message_handler(IsGroup(), content_types=types.ContentType.NEW_CHAT_MEMBERS)
